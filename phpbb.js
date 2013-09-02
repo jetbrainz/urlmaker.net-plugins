@@ -3,16 +3,24 @@
 var plugin = function($) {
 	$(document).ready(function(){
 		$.urlMakerOnLoad = function() {
-			$('#message').urlMaker(
+			$('input[name=addbbcode14]')
+				.clone()
+				.attr('name', 'urlmaker')
+				.attr('value', 'Upload Img')
+				.removeAttr('accesskey')
+				.removeAttr('onclick')
+				.removeAttr('onmouseover')
+				.unbind('click')
+				.unbind('hover')
+				.css({width: '70px'})
+				.insertAfter('input[name=addbbcode14]');
+			$('textarea[name=message]').urlMaker(
 				{
-					bindTo: 'input[name=addbbcode14]',
-					codeType: 'bbcode'
+					bindTo: 'input[name=urlmaker]',
+					codeType: 'bbcode-preview'
 				}
 			);
 		}
-		$('input[name=addbbcode14]')
-			.unbind('click')
-			.attr('onclick', '');
 		$('<script src="http://urlmaker.net/api/urlmaker.jquery.js"></script>').appendTo('body');
 	});
 };
