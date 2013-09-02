@@ -17,7 +17,8 @@ var plugin = function($) {
 			$('textarea[name=message]').urlMaker(
 				{
 					bindTo: 'input[name=urlmaker]',
-					codeType: 'bbcode-preview'
+					codeType: 'bbcode-choice',
+					previewResize: 200
 				}
 			);
 		}
